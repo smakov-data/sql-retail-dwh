@@ -104,7 +104,7 @@ Modeling (Gold)
 ## 6. Repository Structure
 add ------------------------------------------->
 
-## 6. Error Handling (Product–Category Mapping)
+## 7. Error Handling (Product–Category Mapping)
 
 The Silver layer includes a dedicated error-handling mechanism for detecting and isolating invalid product–category mappings between CRM and ERP systems.
 
