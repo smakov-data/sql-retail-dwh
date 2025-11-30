@@ -63,14 +63,13 @@ The Gold layer implements a star schema optimized for BI and analytical workload
 
 Fact table:
 
-fact_sales with order details, dates, quantities, sales amounts.
+- fact_sales with order details, dates, quantities, sales amounts.
 
 
 Dimension tables:
 
-dim_customers
-
-dim_products
+- dim_customers
+- dim_products
 
 Surrogate keys are generated within the model.
 Business logic includes sales amount calculation and product line categorization.
