@@ -29,7 +29,7 @@ Usage:
     CRM — Customer Information
 ==============================================================================*/
 -------------------------------
--- Primary Key: Uniqueness & Nulls
+--Primary Key: Uniqueness & Nulls
 -------------------------------
 SELECT 
     cst_id,
@@ -39,7 +39,7 @@ GROUP BY cst_id
 HAVING COUNT(*) > 1 OR cst_id IS NULL;
 
 -------------------------------
--- Leading/Trailing Spaces
+--Leading/Trailing Spaces
 -------------------------------
 SELECT 
     cst_key
@@ -47,7 +47,7 @@ FROM silver.crm_cust_info
 WHERE cst_key <> TRIM(cst_key);
 
 -------------------------------
--- Domain Values: Marital Status
+--Domain Values: Marital Status
 -------------------------------
 SELECT DISTINCT 
     cst_marital_status
@@ -58,7 +58,7 @@ FROM silver.crm_cust_info;
     CRM — Product Information
 ==============================================================================*/
 -------------------------------
--- Primary Key: Uniqueness & Nulls
+--Primary Key: Uniqueness & Nulls
 -------------------------------
 SELECT 
     prd_id,
@@ -68,7 +68,7 @@ GROUP BY prd_id
 HAVING COUNT(*) > 1 OR prd_id IS NULL;
 
 -------------------------------
--- Leading/Trailing Spaces
+--Leading/Trailing Spaces
 -------------------------------
 SELECT 
     prd_nm
@@ -76,7 +76,7 @@ FROM silver.crm_prd_info
 WHERE prd_nm <> TRIM(prd_nm);
 
 -------------------------------
--- Numerical Validation: Cost
+--Numerical Validation: Cost
 -------------------------------
 SELECT 
     prd_cost
@@ -84,14 +84,14 @@ FROM silver.crm_prd_info
 WHERE prd_cost IS NULL OR prd_cost < 0;
 
 -------------------------------
--- Domain Values: Product Line
+--Domain Values: Product Line
 -------------------------------
 SELECT DISTINCT 
     prd_line
 FROM silver.crm_prd_info;
 
 -------------------------------
--- Date Validation: Start <= End
+--Date Validation: Start <= End
 -------------------------------
 SELECT *
 FROM silver.crm_prd_info
@@ -102,8 +102,8 @@ WHERE prd_end_dt < prd_start_dt;
     CRM — Product Category Mapping (Error Isolation)
 ==============================================================================*/
 -------------------------------
--- Silver products: all categories must exist in ERP category table
--- Expectation: zero rows (no invalid category mapping in main table)
+--Silver products: all categories must exist in ERP category table
+--Expectation: zero rows (no invalid category mapping in main table)
 -------------------------------
 SELECT 
     p.*
@@ -113,8 +113,8 @@ LEFT JOIN silver.erp_px_cat_g1v2 AS c
 WHERE c.id IS NULL;
 
 -------------------------------
--- Error table: contains only invalid mappings
--- Expectation: zero rows (no valid categories stored as errors)
+--Error table: contains only invalid mappings
+--Expectation: zero rows (no valid categories stored as errors)
 -------------------------------
 SELECT 
     e.*
@@ -128,7 +128,7 @@ WHERE c.id IS NOT NULL;
     CRM — Sales Details
 ==============================================================================*/
 -------------------------------
--- Invalid Raw Dates (Bronze Layer)
+--Invalid Raw Dates (Bronze Layer)
 -------------------------------
 SELECT 
     NULLIF(sls_due_dt, 0) AS sls_due_dt
