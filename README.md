@@ -61,12 +61,12 @@ The integration logic ensures consistent business entities across systems.
 
 The Gold layer implements a star schema optimized for BI and analytical workloads.
 
-Fact table
+Fact table:
 
 fact_sales with order details, dates, quantities, sales amounts.
 
 
-Dimension tables
+Dimension tables:
 
 dim_customers
 
@@ -76,3 +76,59 @@ Surrogate keys are generated within the model.
 Business logic includes sales amount calculation and product line categorization.
 
 ![Star Schema](docs/star_schema.png)
+
+## 5. Technical Scope
+Ingestion (Bronze)
+- Source format: CSV files (ERP and CRM)
+- Batch loading with TRUNCATE + INSERT
+- Stored procedures orchestrate loading
+- Raw model preserved without modifications
+
+Transformation (Silver)
+
+Includes:
+- Trim & whitespace cleanup
+- CHAR(10) / CHAR(13) removal
+- Country normalization
+- Product category extraction
+- Derived columns (e.g., category_id, product line)
+- Error capture tables
+- Data enrichment from ERP sources
+
+Modeling (Gold)
+- Star schema (fact + dimensions)
+- Surrogate keys using ROW_NUMBER
+- Join logic across CRM + ERP
+- Business rules implemented via stored procedures
+- Views and materialized tables (depending on requirements)
+
+## 6. Repository Structure
+add ------------------------------------------->
+
+## 7. Data Quality Controls
+
+Implemented in the Silver layer:
+- Null checks
+- Domain validation (e.g., country codes, product categories)
+- Format checks (dates, numeric fields)
+- Duplicate detection
+- Referential consistency between CRM and ERP
+- Error isolation into crm_prd_cat_errors
+
+## 8. Use Cases
+
+This project demonstrates capabilities relevant for:
+- Data Engineer
+- Analytics Engineer
+- SQL Developer
+- ETL / DWH Engineer
+- Business Intelligence Developer
+
+## 9. Technologies
+
+- SQL Server 2019
+- T-SQL Stored Procedures
+- Medallion Architecture
+- Draw.io for diagrams
+- Git & GitHub for versioning
+- CSV as source systems
