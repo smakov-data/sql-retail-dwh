@@ -29,6 +29,7 @@ gold – semantic business model (views)
 ### 3.1 Bronze Layer
 
 Purpose: raw ingestion, structure mirrors source systems.
+
 Pattern: `<sourcesystem>_<entity>`
 
 Rules:
@@ -79,6 +80,7 @@ Examples:
 ### 3.3 Error Tables (Silver)
 
 Purpose: isolate invalid or inconsistent records detected during Silver processing.
+
 Pattern: <entity>_errors
 
 Examples:
@@ -122,6 +124,7 @@ Examples:
 ### 4.2 Surrogate Keys
 
 Pattern: `<entity>_key`
+
 Examples:
 
 `customer_key`
@@ -152,6 +155,7 @@ Purpose: ETL metadata, lineage, auditability.
 Stored procedures follow layer-based naming.
 
 Pattern: `load_<layer>`
+
 Examples:
 
 `load_bronze`
@@ -176,11 +180,19 @@ Examples:
 
 ## 7. Naming Summary
 Object Type	Pattern	Example
+
 Bronze tables	`<source>_<entity>`	`bronze.crm_sales_details`
+
 Silver tables	`<source>_<entity>`	`silver.erp_cust_az12`
+
 Error tables	`<entity>_errors`	`silver.crm_prd_cat_errors`
+
 Gold dimensions	`dim_<entity>`	`gold.dim_customers`
+
 Gold facts	fact_<entity>	`gold.fact_sales`
+
 Surrogate keys	<entity>_key	`customer_key`
+
 Technical columns	`dwh_<attribute>`	`dwh_load_date`
+
 Stored procedures	`load_<layer>`	`load_silver`
