@@ -26,3 +26,49 @@ Designed for reporting, analytics, and ad-hoc SQL queries.
 
 ## High-Level Architecture
 ![High Level Architecture](docs/high_level_architecture.png)
+
+## 2. Data Flow
+
+Data is ingested from two sources:
+
+- CRM: sales, customer, product data
+- ERP: locations, customers, product categories
+
+- Bronze → Silver pipeline includes cleansing, validation, and integration work.
+- Errors in product/category mapping are written to crm_prd_cat_errors.
+- Silver → Gold builds analytical models and surrogate keys.
+
+## Data Flow
+![Data Flow](docs/data_flow.png)
+
+
+## 3. Integration Model
+
+CRM and ERP datasets are integrated by business keys:
+
+Product: prd_key ↔ id
+Customer: cst_id / cst_key ↔ cid
+Additional attributes (birthday, gender, country) are sourced from ERP tables.
+
+The integration logic ensures consistent business entities across systems.
+
+## Integration Model
+![Integration Model](docs/integration_model.png)
+
+
+## 4. Analytical Model (Gold Layer)
+
+The Gold layer implements a star schema optimized for BI and analytical workloads.
+
+#Fact table
+fact_sales with order details, dates, quantities, sales amounts.
+
+#Dimension tables
+dim_customers
+dim_products
+
+Surrogate keys are generated within the model.
+Business logic includes sales amount calculation and product line categorization.
+
+## Sales Data Mart (Star Schema)
+![Star Schema](docs/star_schema.png)
