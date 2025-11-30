@@ -61,11 +61,15 @@ The integration logic ensures consistent business entities across systems.
 
 The Gold layer implements a star schema optimized for BI and analytical workloads.
 
-#Fact table
+Fact table
+
 fact_sales with order details, dates, quantities, sales amounts.
 
-#Dimension tables
+
+Dimension tables
+
 dim_customers
+
 dim_products
 
 Surrogate keys are generated within the model.
