@@ -47,7 +47,9 @@ Silver → Gold builds analytical models and surrogate keys.
 CRM and ERP datasets are integrated by business keys:
 
 Product: prd_key ↔ id
+
 Customer: cst_id / cst_key ↔ cid
+
 Additional attributes (birthday, gender, country) are sourced from ERP tables.
 
 The integration logic ensures consistent business entities across systems.
