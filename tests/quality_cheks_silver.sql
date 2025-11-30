@@ -139,7 +139,7 @@ WHERE sls_due_dt <= 0
    OR sls_due_dt < 19000101;
 
 -------------------------------
--- Logical Date Order Checks
+--Logical Date Order Checks
 -------------------------------
 SELECT *
 FROM silver.crm_sales_details
@@ -147,7 +147,7 @@ WHERE sls_order_dt > sls_ship_dt
    OR sls_order_dt > sls_due_dt;
 
 -------------------------------
--- Business Logic: Sales = Quantity * Price
+--Business Logic: Sales = Quantity * Price
 -------------------------------
 SELECT DISTINCT
     sls_sales,
@@ -168,7 +168,7 @@ ORDER BY sls_sales, sls_quantity, sls_price;
     ERP — Customer Master (az12)
 ==============================================================================*/
 -------------------------------
--- Birthdate Validity Range
+--Birthdate Validity Range
 -------------------------------
 SELECT DISTINCT 
     bdate
@@ -177,7 +177,7 @@ WHERE bdate < '1924-01-01'
    OR bdate > GETDATE();
 
 -------------------------------
--- Domain Values: Gender
+--Domain Values: Gender
 -------------------------------
 SELECT DISTINCT 
     gen
@@ -188,7 +188,7 @@ FROM silver.erp_cust_az12;
     ERP — Location Master (a101)
 ==============================================================================*/
 -------------------------------
--- Domain Values: Country Codes
+--Domain Values: Country Codes
 -------------------------------
 SELECT DISTINCT
     cntry
@@ -200,7 +200,7 @@ ORDER BY cntry;
     ERP — Product Category (g1v2)
 ==============================================================================*/
 -------------------------------
--- Leading/Trailing Spaces
+--Leading/Trailing Spaces
 -------------------------------
 SELECT *
 FROM silver.erp_px_cat_g1v2
@@ -209,7 +209,7 @@ WHERE cat        <> TRIM(cat)
    OR maintenance <> TRIM(maintenance);
 
 -------------------------------
--- Domain Values: Maintenance Flags
+--Domain Values: Maintenance Flags
 -------------------------------
 SELECT DISTINCT 
     maintenance
