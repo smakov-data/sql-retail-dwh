@@ -33,9 +33,9 @@ Data is ingested from two sources:
 - CRM: sales, customer, product data
 - ERP: locations, customers, product categories
 
-  Bronze → Silver pipeline includes cleansing, validation, and integration work.
-  Errors in product/category mapping are written to crm_prd_cat_errors.
-  Silver → Gold builds analytical models and surrogate keys.
+Bronze → Silver pipeline includes cleansing, validation, and integration work.
+Errors in product/category mapping are written to crm_prd_cat_errors.
+Silver → Gold builds analytical models and surrogate keys.
 
 ![Data Flow](docs/data_flow.png)
 
