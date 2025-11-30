@@ -18,9 +18,9 @@ Invalid or inconsistent records are isolated into error tables.
 
 Gold Layer
 Business-ready data modeled as a star schema:
-- fact_sales
-- dim_customers
-- dim_products
+- `fact_sales`
+- `dim_customers`
+- `dim_products`
 
 Designed for reporting, analytics, and ad-hoc SQL queries.
 
@@ -35,7 +35,7 @@ Data is ingested from two sources:
 
 Bronze → Silver pipeline includes cleansing, validation, and integration work.
 
-Errors in product/category mapping are written to crm_prd_cat_errors.
+Errors in product/category mapping are written to `crm_prd_cat_errors`.
 
 Silver → Gold builds analytical models and surrogate keys.
 
@@ -63,13 +63,13 @@ The Gold layer implements a star schema optimized for BI and analytical workload
 
 Fact table:
 
-- fact_sales with order details, dates, quantities, sales amounts.
+- `fact_sales` with order details, dates, quantities, sales amounts.
 
 
 Dimension tables:
 
-- dim_customers
-- dim_products
+- `dim_customers`
+- `dim_products`
 
 Surrogate keys are generated within the model.
 Business logic includes sales amount calculation and product line categorization.
@@ -113,6 +113,7 @@ Key logic:
 Every product record is validated against the ERP category master.
 
 Records with categories that do not exist in ERP are redirected to a dedicated error table:
+
 `silver.crm_prd_cat_errors`
 
 This ensures that only products with valid category assignments proceed to analytical modeling.
