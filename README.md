@@ -104,7 +104,24 @@ Modeling (Gold)
 ## 6. Repository Structure
 add ------------------------------------------->
 
-## 7. Data Quality Controls
+## 6. Error Handling (Product–Category Mapping)
+
+The Silver layer includes a dedicated error-handling mechanism for detecting and isolating invalid product–category mappings between CRM and ERP systems.
+
+Key logic:
+
+Every product record is validated against the ERP category master.
+
+Records with categories that do not exist in ERP are redirected to a dedicated error table:
+silver.crm_prd_cat_errors
+
+This ensures that only products with valid category assignments proceed to analytical modeling.
+
+Error records remain fully traceable for audit, debugging, and reconciliation.
+
+This mechanism prevents incorrect product–category relationships from propagating into the Gold layer and supports consistent dimensional modeling.
+
+## 8. Data Quality Controls
 
 Implemented in the Silver layer:
 - Null checks
@@ -114,7 +131,7 @@ Implemented in the Silver layer:
 - Referential consistency between CRM and ERP
 - Error isolation into crm_prd_cat_errors
 
-## 8. Use Cases
+## 9. Use Cases
 
 This project demonstrates capabilities relevant for:
 - Data Engineer
@@ -123,7 +140,7 @@ This project demonstrates capabilities relevant for:
 - ETL / DWH Engineer
 - Business Intelligence Developer
 
-## 9. Technologies
+## 10. Technologies
 
 - SQL Server 2019
 - T-SQL Stored Procedures
