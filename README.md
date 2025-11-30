@@ -112,9 +112,7 @@ Key logic:
 
 Every product record is validated against the ERP category master.
 
-Records with categories that do not exist in ERP are redirected to a dedicated error table:
-
-`silver.crm_prd_cat_errors`
+Records with categories that do not exist in ERP are redirected to a dedicated error table: `silver.crm_prd_cat_errors`
 
 This ensures that only products with valid category assignments proceed to analytical modeling.
 
