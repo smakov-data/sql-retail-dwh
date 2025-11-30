@@ -24,7 +24,6 @@ Business-ready data modeled as a star schema:
 
 Designed for reporting, analytics, and ad-hoc SQL queries.
 
-## High-Level Architecture
 ![High Level Architecture](docs/high_level_architecture.png)
 
 ## 2. Data Flow
@@ -38,7 +37,6 @@ Data is ingested from two sources:
 - Errors in product/category mapping are written to crm_prd_cat_errors.
 - Silver → Gold builds analytical models and surrogate keys.
 
-## Data Flow
 ![Data Flow](docs/data_flow.png)
 
 
@@ -52,7 +50,6 @@ Additional attributes (birthday, gender, country) are sourced from ERP tables.
 
 The integration logic ensures consistent business entities across systems.
 
-## Integration Model
 ![Integration Model](docs/integration_model.png)
 
 
@@ -70,5 +67,4 @@ dim_products
 Surrogate keys are generated within the model.
 Business logic includes sales amount calculation and product line categorization.
 
-## Sales Data Mart (Star Schema)
 ![Star Schema](docs/star_schema.png)
