@@ -23,3 +23,6 @@ Business-ready data modeled as a star schema:
 - dim_products
 
 Designed for reporting, analytics, and ad-hoc SQL queries.
+
+## High-Level Architecture
+![High Level Architecture](docs/high_level_architecture.png)
