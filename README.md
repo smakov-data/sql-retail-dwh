@@ -101,7 +101,20 @@ Modeling (Gold)
 - Business rules implemented via stored procedures
 - Views and materialized tables (depending on requirements)
 
-## 6. Repository Structure
+
+## 6. Medallion Architecture Overview
+
+This diagram provides a visual comparison of responsibilities and characteristics of each layer (Bronze, Silver, Gold), including transformation logic, load strategy, object types, and target audience.
+
+![Medallion Architecture Overview](docs/medallion_layers_overview.png)
+
+## 7. ETL Development Workflow
+
+This workflow illustrates the end-to-end development cycle for each Medallion layer: analysis, coding, validation, and documentation — matching real-world enterprise and consulting practices.
+
+![ETL Development Workflow](docs/etl_development_workflow.png)
+
+## 8. Repository Structure
 add ------------------------------------------->
 
 ## 7. Error Handling (Product–Category Mapping)
@@ -120,7 +133,7 @@ Error records remain fully traceable for audit, debugging, and reconciliation.
 
 This mechanism prevents incorrect product–category relationships from propagating into the Gold layer and supports consistent dimensional modeling.
 
-## 8. Data Quality Controls
+## 9. Data Quality Controls
 
 Implemented in the Silver layer:
 - Null checks
@@ -130,7 +143,7 @@ Implemented in the Silver layer:
 - Referential consistency between CRM and ERP
 - Error isolation into crm_prd_cat_errors
 
-## 9. Use Cases
+## 10. Use Cases
 
 This project demonstrates capabilities relevant for:
 - Data Engineer
@@ -139,7 +152,7 @@ This project demonstrates capabilities relevant for:
 - ETL / DWH Engineer
 - Business Intelligence Developer
 
-## 10. Technologies
+## 11. Technologies
 
 - SQL Server 2019
 - T-SQL Stored Procedures
