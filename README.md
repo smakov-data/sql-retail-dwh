@@ -116,6 +116,7 @@ This workflow illustrates the end-to-end development cycle for each Medallion la
 
 ## 8. Repository Structure
 
+```
 sql-retail-dwh/
 │
 ├── datasets/                 # Source CRM & ERP datasets (CSV)
@@ -151,7 +152,7 @@ sql-retail-dwh/
 ├── LICENSE                   # MIT License
 ├── .gitignore
 └── README.md                 # Project overview & documentation
-
+```
 
 ## 9. Error Handling (Product–Category Mapping)
 
