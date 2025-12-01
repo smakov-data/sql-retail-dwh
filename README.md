@@ -117,7 +117,7 @@ This workflow illustrates the end-to-end development cycle for each Medallion la
 ## 8. Repository Structure
 add ------------------------------------------->
 
-## 7. Error Handling (Product–Category Mapping)
+## 9. Error Handling (Product–Category Mapping)
 
 The Silver layer includes a dedicated error-handling mechanism for detecting and isolating invalid product–category mappings between CRM and ERP systems.
 
@@ -133,7 +133,7 @@ Error records remain fully traceable for audit, debugging, and reconciliation.
 
 This mechanism prevents incorrect product–category relationships from propagating into the Gold layer and supports consistent dimensional modeling.
 
-## 9. Data Quality Controls
+## 10. Data Quality Controls
 
 Implemented in the Silver layer:
 - Null checks
@@ -143,7 +143,7 @@ Implemented in the Silver layer:
 - Referential consistency between CRM and ERP
 - Error isolation into crm_prd_cat_errors
 
-## 10. Use Cases
+## 11. Use Cases
 
 This project demonstrates capabilities relevant for:
 - Data Engineer
@@ -152,7 +152,7 @@ This project demonstrates capabilities relevant for:
 - ETL / DWH Engineer
 - Business Intelligence Developer
 
-## 11. Technologies
+## 12. Technologies
 
 - SQL Server 2019
 - T-SQL Stored Procedures
