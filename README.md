@@ -115,7 +115,43 @@ This workflow illustrates the end-to-end development cycle for each Medallion la
 ![ETL Development Workflow](docs/etl_development_workflow.png)
 
 ## 8. Repository Structure
-add ------------------------------------------->
+
+sql-retail-dwh/
+│
+├── datasets/                 # Source CRM & ERP datasets (CSV)
+│   ├── source_crm/
+│   └── source_erp/
+│
+├── docs/                     # Architecture diagrams & documentation
+│   ├── data_catalog.md
+│   ├── naming_conventions.md
+│   ├── high_level_architecture.png
+│   ├── data_flow.png
+│   ├── integration_model.png
+│   ├── star_schema.png
+│   ├── medallion_layers_overview.png
+│   └── etl_development_workflow.png
+│
+├── scripts/                  # ETL pipeline logic (DDL + Stored Procedures)
+│   ├── init/
+│   │   └── init_database.sql
+│   ├── bronze/
+│   │   ├── bronze_tables_ddl.sql
+│   │   └── proc_load_bronze.sql
+│   ├── silver/
+│   │   ├── silver_tables_ddl.sql
+│   │   └── proc_load_silver.sql
+│   └── gold/
+│       └── gold_views_ddl.sql
+│
+├── tests/                    # Data Quality checks for Silver & Gold
+│   ├── dq_silver.sql
+│   └── dq_gold.sql
+│
+├── LICENSE                   # MIT License
+├── .gitignore
+└── README.md                 # Project overview & documentation
+
 
 ## 9. Error Handling (Product–Category Mapping)
 
