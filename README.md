@@ -1,7 +1,12 @@
-## Enterprise Sales Data Warehouse (Medallion Architecture)
+## Enterprise Sales Analytics Data Warehouse  
+(SQL Server — Medallion Architecture)
 
-This repository contains a full SQL-based Data Warehouse implemented on SQL Server.
-The project demonstrates modern data engineering practices used in enterprise environments: Medallion Architecture, ETL pipelines, data quality controls, dimensional modeling, and analytical data marts.
+This project demonstrates the design and implementation of a SQL-centric analytics data warehouse built to support business reporting, sales analytics, and data-driven decision-making.
+
+The solution applies enterprise data warehousing best practices, including the Medallion Architecture (Bronze → Silver → Gold), ETL pipelines, data quality controls, dimensional modeling, and the delivery of BI-ready analytical data marts.
+
+The focus of the project is on translating business requirements into reliable analytical models — from raw CRM and ERP data ingestion to validated fact and dimension tables optimized for reporting and ad-hoc analysis.
+
 
 ## 1. Architecture Overview
 
